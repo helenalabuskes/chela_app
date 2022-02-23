@@ -7,6 +7,33 @@ import { authenticatedFetch } from "@shopify/app-bridge-utils";
 import { Redirect } from "@shopify/app-bridge/actions";
 import "@shopify/polaris/dist/styles.css";
 import translations from "@shopify/polaris/locales/en.json";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import {ExtendedAppProvider} from '@shopify/channels-ui';
+import polarisTranslations from '@shopify/polaris/locales/en.json';
+import channelsUiTranslations from '@shopify/channels-ui/locales/en.json';
+
+function MyApp() {
+  const appBridgeConfig = {
+    apiKey: 'API key from Shopify Partner Dashboard',
+    host: 'host from URL search parameter',
+    forceRedirect: true,
+  };
+
+  return (
+    <ExtendedAppProvider
+      config={appBridgeConfig}
+      polaris={{i18n: polarisTranslations}}
+      i18n={channelsUiTranslations}
+    >
+      /* your app */
+    </ExtendedAppProvider>
+  );
+}
+
+const root = document.createElement('div');
+document.body.appendChild(root);
+ReactDOM.render(<MyApp />, root);
 
 function userLoggedInFetch(app) {
   const fetchFunction = authenticatedFetch(app);
@@ -49,7 +76,7 @@ function MyProvider(props) {
   );
 }
 
-class MyApp extends App {
+/*class MyApp extends App {
   render() {
     const { Component, pageProps, host } = this.props;
     return (
@@ -66,7 +93,7 @@ class MyApp extends App {
       </AppProvider>
     );
   }
-}
+}*/
 
 MyApp.getInitialProps = async ({ ctx }) => {
   return {
