@@ -1,8 +1,8 @@
 import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "react-apollo";
 import App from "next/app";
-import { AppProvider } from "@shopify/polaris";
-import { Provider, useAppBridge } from "@shopify/app-bridge-react";
+//import { AppProvider } from "@shopify/polaris";
+//import { Provider, useAppBridge } from "@shopify/app-bridge-react";
 import { authenticatedFetch } from "@shopify/app-bridge-utils";
 import { Redirect } from "@shopify/app-bridge/actions";
 import "@shopify/polaris/dist/styles.css";
@@ -31,9 +31,7 @@ function MyApp() {
   );
 }
 
-const root = document.createElement('div');
-document.body.appendChild(root);
-ReactDOM.render(<MyApp />, root);
+
 
 function userLoggedInFetch(app) {
   const fetchFunction = authenticatedFetch(app);
