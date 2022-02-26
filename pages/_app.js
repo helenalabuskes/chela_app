@@ -13,23 +13,19 @@ import {ExtendedAppProvider} from '@shopify/channels-ui';
 import polarisTranslations from '@shopify/polaris/locales/en.json';
 import channelsUiTranslations from '@shopify/channels-ui/locales/en.json';
 
-function MyApp() {
-  const appBridgeConfig = {
-    apiKey: 'API key from Shopify Partner Dashboard',
-    host: 'host from URL search parameter',
-    forceRedirect: true,
-  };
+/* APOLLOSERVERANDCLIENTAUTH
+import { ApolloProvider } from '@apollo/client'
+import { useApollo } from '../apollo/client'
+
+export default function App({ Component, pageProps }) {
+  const apolloClient = useApollo(pageProps.initialApolloState)
 
   return (
-    <ExtendedAppProvider
-      config={appBridgeConfig}
-      polaris={{i18n: polarisTranslations}}
-      i18n={channelsUiTranslations}
-    >
-      /* your app */
-    </ExtendedAppProvider>
-  );
-}
+    <ApolloProvider client={apolloClient}>
+      <Component {...pageProps} />
+    </ApolloProvider>
+  )
+} */
 
 
 
@@ -74,7 +70,7 @@ function MyProvider(props) {
   );
 }
 
-/*class MyApp extends App {
+class MyApp extends App {
   render() {
     const { Component, pageProps, host } = this.props;
     return (
@@ -91,7 +87,7 @@ function MyProvider(props) {
       </AppProvider>
     );
   }
-}*/
+}
 
 MyApp.getInitialProps = async ({ ctx }) => {
   return {
