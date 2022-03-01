@@ -1,16 +1,17 @@
 import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "react-apollo";
 import App from "next/app";
-import { AppProvider } from "@shopify/polaris";
-import { Provider, useAppBridge } from "@shopify/app-bridge-react";
+//import { AppProvider } from "@shopify/polaris";
+//import { Provider, useAppBridge } from "@shopify/app-bridge-react";
 import { authenticatedFetch } from "@shopify/app-bridge-utils";
 import { Redirect } from "@shopify/app-bridge/actions";
+import "@shopify/polaris/dist/styles.css";
 import translations from "@shopify/polaris/locales/en.json";
-import React from "react";
-import ReactDOM from "react-dom";
-import { ExtendedAppProvider } from "@shopify/channels-ui";
-import polarisTranslations from "@shopify/polaris/locales/en.json";
-import channelsUiTranslations from "@shopify/channels-ui/locales/en.json";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import {ExtendedAppProvider} from '@shopify/channels-ui';
+import polarisTranslations from '@shopify/polaris/locales/en.json';
+import channelsUiTranslations from '@shopify/channels-ui/locales/en.json';
 
 /* APOLLOSERVERANDCLIENTAUTH
 import { ApolloProvider } from '@apollo/client'
@@ -25,6 +26,8 @@ export default function App({ Component, pageProps }) {
     </ApolloProvider>
   )
 } */
+
+
 
 function userLoggedInFetch(app) {
   const fetchFunction = authenticatedFetch(app);
