@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import gql from 'graphql-tag';
-import { Mutation } from 'react-apollo';
-import { Layout, Button, Banner, Toast, Stack, Frame } from '@shopify/polaris';
-import { Context } from '@shopify/app-bridge-react';
+import React, { useState } from "react";
+import gql from "graphql-tag";
+import { Mutation } from "react-apollo";
+import { Layout, Button, Banner, Toast, Stack, Frame } from "@shopify/polaris";
+import { Context } from "@shopify/app-bridge-react";
 
 // GraphQL mutation that updates the prices of products
 const UPDATE_PRICE = gql`
@@ -19,15 +19,16 @@ const UPDATE_PRICE = gql`
   }
 `;
 
-//class called ApplyRandomPrices that takes the mutation's input 
+//class called ApplyRandomPrices that takes the mutation's input
 // and applies a random price to the selected product
 class ApplyRandomPrices extends React.Component {
   static contextType = Context;
 
   render() {
-    return ( // Uses mutation's input to update product prices
+    return (
+      // Uses mutation's input to update product prices
       <Mutation mutation={UPDATE_PRICE}>
-        {(handleSubmit, {error, data}) => {
+        {(handleSubmit, { error, data }) => {
           const [hasResults, setHasResults] = useState(false);
 
           const showError = error && (
@@ -44,9 +45,7 @@ class ApplyRandomPrices extends React.Component {
           return (
             <Frame>
               {showToast}
-              <Layout.Section>
-                {showError}
-              </Layout.Section>
+              <Layout.Section>{showError}</Layout.Section>
 
               <Layout.Section>
                 <Stack distribution={"center"}>
@@ -56,19 +55,27 @@ class ApplyRandomPrices extends React.Component {
                     onClick={() => {
                       let promise = new Promise((resolve) => resolve());
                       for (const variantId in this.props.selectedItems) {
-                        const price = parseFloat(Math.random().toPrecision(3)) * 10;
+                        const price =
+                          parseFloat(Math.random().toPrecision(3)) * 10;
                         const productVariableInput = {
-                          id: this.props.selectedItems[variantId].variants.edges[0].node.id,
+                          id: this.props.selectedItems[variantId].variants
+                            .edges[0].node.id,
                           price: price,
                         };
 
-                        promise = promise.then(() => handleSubmit({ variables: { input: productVariableInput }}));
+                        promise = promise.then(() =>
+                          handleSubmit({
+                            variables: { input: productVariableInput },
+                          })
+                        );
                       }
 
                       if (promise) {
-                        promise.then(() => this.props.onUpdate().then(() => setHasResults(true)));
+                        promise.then(() =>
+                          this.props.onUpdate().then(() => setHasResults(true))
+                        );
+                      }
                     }}
-                  }
                   >
                     Randomize prices
                   </Button>
