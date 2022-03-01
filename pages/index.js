@@ -38,13 +38,15 @@ class Index extends React.Component {
           onSelection={(resources) => this.handleSelection(resources)}
           onCancel={() => this.setState({ open: false })}
         />
+        /*{" "}
         <Layout>
           <Layout.Section>
             <Card title="Online store dashboard" sectioned>
               <p>View a summary of your online store’s performance.</p>
             </Card>
           </Layout.Section>
-        </Layout>
+        </Layout>{" "}
+        */
         {emptyState ? ( // Controls the layout of your app's empty state
           <Layout>
             <EmptyState
