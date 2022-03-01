@@ -48,7 +48,7 @@ function userLoggedInFetch(app) {
   };
 }
 
-/* function AccountConnectionExample() {
+function AccountConnectionExample() {
   const [connected, setConnected] = useState(false);
   const accountName = connected ? "CHELA" : "";
   const handleAction = useCallback(() => {
@@ -76,7 +76,7 @@ function userLoggedInFetch(app) {
       accountName="CHELA"
     />
   );
-} */
+}
 
 function MyProvider(props) {
   const app = useAppBridge();
