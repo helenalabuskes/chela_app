@@ -1,4 +1,7 @@
 import React from "react";
+import ReactDOM from "react-dom";
+import {AppProvider} from "@shopify/polaris";
+import en from '@shopify/polaris/locales/en.json';
 import gql from "graphql-tag";
 import { Mutation } from "react-apollo";
 import { Page, Layout, EmptyState, Button, Card } from "@shopify/polaris";
@@ -8,6 +11,11 @@ import ResourceListWithProducts from "./components/ResourceList";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 
+import App from "./_app"
+import "@shopify/polaris/dist/styles.css";
+
+
+  //ReactDOM.render(<AppProvider i18n={en} theme={{colorScheme: "light"}}><App /></AppProvider>, document.getElementById("root"));
 /* APOLLOSERVERANDCLIENTAUTH
 import Link from 'next/link'
 import { gql, useQuery } from '@apollo/client'
@@ -86,6 +94,25 @@ class Index extends React.Component {
             </Card>
           </Layout.Section>
         </Layout>
+
+        <Layout>
+          <Layout.Section>
+            <Card title="Account Connection" sectioned>
+              <AccountConnection
+                accountName={accountName}
+                connected={connected}
+                title="CHELA account"
+                action={{
+                  content: buttonText,
+                  onAction: handleAction,
+                }}
+                details={details}
+                termsOfService={terms}
+              />
+            </Card>
+          </Layout.Section>
+        </Layout>
+        
 
         {emptyState ? ( // Controls the layout of your app's empty state
           <Layout>

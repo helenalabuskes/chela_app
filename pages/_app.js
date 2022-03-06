@@ -7,11 +7,12 @@ import { authenticatedFetch } from "@shopify/app-bridge-utils";
 import { Redirect } from "@shopify/app-bridge/actions";
 import "@shopify/polaris/dist/styles.css";
 import translations from "@shopify/polaris/locales/en.json";
-import React from "react";
 import ReactDOM from "react-dom";
 import { ExtendedAppProvider } from "@shopify/channels-ui";
 import polarisTranslations from "@shopify/polaris/locales/en.json";
 import channelsUiTranslations from "@shopify/channels-ui/locales/en.json";
+import React, {useCallback, useState} from 'react';
+import {AccountConnection, Liink} from '@shopify/polaris';
 
 /* APOLLOSERVERANDCLIENTAUTH
 import { ApolloProvider } from '@apollo/client'
@@ -27,7 +28,7 @@ export default function App({ Component, pageProps }) {
   )
 } */
 
-function AccountConnectionExample() {
+export function AccountConnectionExample() {
   const [connected, setConnected] = useState(false);
   const accountName = connected ? "CHELA" : "";
   const handleAction = useCallback(() => {
@@ -39,11 +40,13 @@ function AccountConnectionExample() {
     <p>
       By clicking <strong>Connect</strong>, you agree to accept Sample App’s{" "}
       <Link url="CHELA account">terms and conditions</Link>. You’ll pay a
-      commission rate of 15% on sales made through Sample App.
+      commission rate of 20% on sales made through Sample App.
     </p>
   );
   return (
     <AccountConnection
+      accountName={accountName}
+      connected={connected}
       title="CHELA account"
       action={{
         content: buttonText,
@@ -51,8 +54,6 @@ function AccountConnectionExample() {
       }}
       details={details}
       termsOfService={terms}
-      connected={true}
-      accountName="CHELA"
     />
   );
 }
