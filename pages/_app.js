@@ -57,8 +57,11 @@ export default function App({ Component, pageProps }) {
     />
   );
 <<<<<<< HEAD
+<<<<<<< HEAD
 }*/
 =======
+=======
+>>>>>>> parent of 998c5b8 (sunday group)
 }
 >>>>>>> parent of 998c5b8 (sunday group)
 
