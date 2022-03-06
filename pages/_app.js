@@ -28,7 +28,7 @@ export default function App({ Component, pageProps }) {
   )
 } */
 
-export function AccountConnectionExample() {
+/*export function AccountConnectionExample() {
   const [connected, setConnected] = useState(false);
   const accountName = connected ? 'Jane Appleseed' : '';
 
@@ -45,7 +45,7 @@ export function AccountConnectionExample() {
       commission rate of 15% on sales made through Sample App.
     </p>
   );
-  /*return (
+  return (
     <AccountConnection
       accountName={accountName}
       connected={connected}
@@ -57,8 +57,8 @@ export function AccountConnectionExample() {
       details={details}
       termsOfService={terms}
     />
-  );*/
-}
+  );
+}*/
 
 function userLoggedInFetch(app) {
   const fetchFunction = authenticatedFetch(app);

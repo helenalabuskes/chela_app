@@ -23,7 +23,7 @@ import {AccountConnection, Link} from '@shopify/polaris';
 
 class AccountConnectionWork extends React.Component {
     static contextType = Context;
-  
+    
     // A constructor that defines selected items and nodes
     constructor(props) {
       super(props);
@@ -31,6 +31,23 @@ class AccountConnectionWork extends React.Component {
         selectedItems: [],
         selectedNodes: {},
       };
+      const [connected, setConnected] = useState(false);
+      const accountName = connected ? 'Jane Appleseed' : '';
+    
+      const handleAction = useCallback(() => {
+        setConnected((connected) => !connected);
+      }, [connected]);
+    
+      const buttonText = connected ? 'Disconnect' : 'Connect';
+      const details = connected ? 'Account connected' : 'No account connected';
+      const terms = connected ? null : (
+        <p>
+          By clicking <strong>Connect</strong>, you agree to accept Sample App’s{' '}
+          <Link url="Example App">terms and conditions</Link>. You’ll pay a
+          commission rate of 15% on sales made through Sample App.
+        </p>
+      );
+    
     }
   
     render() {
