@@ -30,19 +30,17 @@ export default function App({ Component, pageProps }) {
 
 /*export function AccountConnectionExample() {
   const [connected, setConnected] = useState(false);
-  const accountName = connected ? 'Jane Appleseed' : '';
-
+  const accountName = connected ? "CHELA" : "";
   const handleAction = useCallback(() => {
     setConnected((connected) => !connected);
   }, [connected]);
-
-  const buttonText = connected ? 'Disconnect' : 'Connect';
-  const details = connected ? 'Account connected' : 'No account connected';
+  const buttonText = connected ? "Disconnect" : "Connect";
+  const details = connected ? "Account connected" : "No account connected";
   const terms = connected ? null : (
     <p>
-      By clicking <strong>Connect</strong>, you agree to accept Sample App’s{' '}
-      <Link url="Example App">terms and conditions</Link>. You’ll pay a
-      commission rate of 15% on sales made through Sample App.
+      By clicking <strong>Connect</strong>, you agree to accept Sample App’s{" "}
+      <Link url="CHELA account">terms and conditions</Link>. You’ll pay a
+      commission rate of 20% on sales made through Sample App.
     </p>
   );
   return (
@@ -58,7 +56,11 @@ export default function App({ Component, pageProps }) {
       termsOfService={terms}
     />
   );
+<<<<<<< HEAD
 }*/
+=======
+}
+>>>>>>> parent of 998c5b8 (sunday group)
 
 function userLoggedInFetch(app) {
   const fetchFunction = authenticatedFetch(app);

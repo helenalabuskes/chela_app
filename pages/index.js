@@ -8,7 +8,6 @@ import { Page, Layout, EmptyState, Button, Card } from "@shopify/polaris";
 import { ResourcePicker, TitleBar } from "@shopify/app-bridge-react";
 import store from "store-js";
 import ResourceListWithProducts from "./components/ResourceList";
-import AccountConnectionWork from "./components/AccountConnection";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 
@@ -95,6 +94,24 @@ class Index extends React.Component {
             </Card>
           </Layout.Section>
         </Layout>
+
+        <Layout>
+          <Layout.Section>
+            <Card title="Account Connection" sectioned>
+              <AccountConnection
+                accountName={accountName}
+                connected={connected}
+                title="CHELA account"
+                action={{
+                  content: buttonText,
+                  onAction: handleAction,
+                }}
+                details={details}
+                termsOfService={terms}
+              />
+            </Card>
+          </Layout.Section>
+        </Layout>
         
 
         {emptyState ? ( // Controls the layout of your app's empty state
@@ -113,11 +130,7 @@ class Index extends React.Component {
         ) : (
           // Uses the new resource list that retrieves products by IDs
           <ResourceListWithProducts />
-         
-        )} : (
-          <AccountConnectionWork />
-        )
-        
+        )}
       </Page>
     );
   }
